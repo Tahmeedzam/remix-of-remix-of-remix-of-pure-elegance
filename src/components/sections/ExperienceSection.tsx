@@ -32,9 +32,17 @@ const experiences: Experience[] = [
   },
 ];
 
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 const ExperienceSection = () => {
+  const { ref, isVisible } = useScrollReveal(0.15);
+
   return (
-    <section id="experience" className="section-container flex flex-col justify-center">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="experience" 
+      className={`section-container flex flex-col justify-center scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="max-w-3xl">
         <h2 className="text-5xl md:text-7xl font-display font-bold mb-16 animate-fade-in">
           Experience
