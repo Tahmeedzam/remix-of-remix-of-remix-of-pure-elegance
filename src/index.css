@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 98%;
+
+    --radius: 0.5rem;
+
+    /* Custom glow colors */
+    --glow-white: 0 0% 100%;
+    --glow-cool: 210 100% 70%;
+    --glow-warm: 270 70% 70%;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 4%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Icon glow effect */
+  .icon-glow {
+    @apply transition-all duration-300;
+    filter: drop-shadow(0 0 8px hsl(var(--glow-white) / 0.3));
+  }
+
+  .icon-glow:hover {
+    filter: drop-shadow(0 0 12px hsl(var(--glow-white) / 0.6));
+  }
+
+  /* Glow pulse animation */
+  .glow-pulse {
+    filter: drop-shadow(0 0 10px hsl(var(--glow-white) / 0.4));
+  }
+
+  /* Cool glow for technical skills */
+  .glow-cool {
+    box-shadow: 0 0 20px hsl(var(--glow-cool) / 0.15),
+                inset 0 0 20px hsl(var(--glow-cool) / 0.05);
+  }
+
+  .glow-cool:hover {
+    box-shadow: 0 0 30px hsl(var(--glow-cool) / 0.25),
+                inset 0 0 30px hsl(var(--glow-cool) / 0.1);
+  }
+
+  /* Warm glow for soft skills */
+  .glow-warm {
+    box-shadow: 0 0 20px hsl(var(--glow-warm) / 0.15),
+                inset 0 0 20px hsl(var(--glow-warm) / 0.05);
+  }
+
+  .glow-warm:hover {
+    box-shadow: 0 0 30px hsl(var(--glow-warm) / 0.25),
+                inset 0 0 30px hsl(var(--glow-warm) / 0.1);
+  }
+
+  /* Card glow */
+  .card-glow {
+    @apply transition-all duration-500;
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 40px hsl(var(--glow-white) / 0.1),
+                0 0 80px hsl(var(--glow-white) / 0.05);
+  }
+
+  /* Skill pill */
+  .skill-pill {
+    @apply px-4 py-2 rounded-full border border-border bg-card/50 
+           transition-all duration-300 text-sm font-medium;
+  }
+
+  .skill-pill:hover {
+    @apply border-foreground/30;
+    box-shadow: 0 0 15px hsl(var(--glow-white) / 0.2);
+  }
+
+  /* Section container */
+  .section-container {
+    @apply min-h-screen py-20 px-8 md:px-16 lg:px-24;
+  }
+
+  /* Divider line */
+  .divider-line {
+    @apply w-px bg-gradient-to-b from-transparent via-border to-transparent;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-delay {
+    animation: fadeIn 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  /* Slide in from right */
+  .animate-slide-in-right {
+    animation: slideInRight 0.3s ease-out forwards;
+  }
+
+  /* Stagger children */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
