@@ -11,9 +11,17 @@ const softSkills = [
   'Project Management', 'Critical Thinking',
 ];
 
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 const SkillsSection = () => {
+  const { ref, isVisible } = useScrollReveal(0.15);
+
   return (
-    <section id="skills" className="section-container flex flex-col justify-center">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="skills" 
+      className={`section-container flex flex-col justify-center scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="max-w-4xl w-full">
         <h2 className="text-5xl md:text-7xl font-display font-bold mb-16 animate-fade-in">
           Skills

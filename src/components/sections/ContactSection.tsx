@@ -1,4 +1,5 @@
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, FileDown } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const contactLinks = [
   {
@@ -21,17 +22,36 @@ const contactLinks = [
   },
 ];
 
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 const ContactSection = () => {
+  const { ref, isVisible } = useScrollReveal(0.15);
+
   return (
-    <section id="contact" className="section-container flex flex-col justify-center">
+    <section 
+      ref={ref as React.RefObject<HTMLElement>}
+      id="contact" 
+      className={`section-container flex flex-col justify-center scroll-reveal ${isVisible ? 'visible' : ''}`}
+    >
       <div className="max-w-2xl">
         <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 animate-fade-in">
           Contact
         </h2>
         
-        <p className="text-xl text-muted-foreground mb-12 animate-fade-in opacity-0 stagger-1">
+        <p className="text-xl text-muted-foreground mb-8 animate-fade-in opacity-0 stagger-1">
           Interested in working together? Let's connect.
         </p>
+        
+        <Button
+          asChild
+          variant="outline"
+          className="mb-12 animate-fade-in opacity-0 stagger-2 group"
+        >
+          <a href="/resume.pdf" download>
+            <FileDown className="mr-2 h-4 w-4 transition-transform group-hover:-translate-y-0.5" />
+            Download Resume
+          </a>
+        </Button>
         
         <div className="space-y-4">
           {contactLinks.map((link, index) => {
