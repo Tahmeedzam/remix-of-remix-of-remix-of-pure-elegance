@@ -1,4 +1,5 @@
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import TiltCard from '@/components/TiltCard';
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal(0.15);
@@ -15,14 +16,14 @@ const AboutSection = () => {
         </h1>
         
         <div className="flex flex-col lg:flex-row gap-12 items-start">
-          {/* Profile Image */}
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden flex-shrink-0 animate-fade-in opacity-0 stagger-1 group cursor-pointer">
+          {/* Profile Image with Tilt Effect */}
+          <TiltCard className="w-48 h-48 md:w-64 md:h-64 rounded-2xl overflow-hidden flex-shrink-0 animate-fade-in opacity-0 stagger-1 cursor-pointer shadow-lg">
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
               alt="Profile"
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+              className="w-full h-full object-cover"
             />
-          </div>
+          </TiltCard>
           
           {/* Bio */}
           <div className="space-y-6 animate-fade-in opacity-0 stagger-2">

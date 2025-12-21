@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { User, Briefcase, Code, FolderOpen, Mail } from 'lucide-react';
+import { User, Briefcase, Code, FolderOpen, Mail, Trophy } from 'lucide-react';
 
 interface NavItem {
   id: string;
@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { id: 'experience', icon: Briefcase, label: 'Experience' },
   { id: 'skills', icon: Code, label: 'Skills' },
   { id: 'projects', icon: FolderOpen, label: 'Projects' },
+  { id: 'awards', icon: Trophy, label: 'Awards' },
   { id: 'contact', icon: Mail, label: 'Contact' },
 ];
 
