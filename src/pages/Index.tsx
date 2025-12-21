@@ -4,9 +4,10 @@ import AboutSection from '@/components/sections/AboutSection';
 import ExperienceSection from '@/components/sections/ExperienceSection';
 import SkillsSection from '@/components/sections/SkillsSection';
 import ProjectsSection from '@/components/sections/ProjectsSection';
+import AwardsSection from '@/components/sections/AwardsSection';
 import ContactSection from '@/components/sections/ContactSection';
 
-const sections = ['about', 'experience', 'skills', 'projects', 'contact'];
+const sections = ['about', 'experience', 'skills', 'projects', 'awards', 'contact'];
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('about');
@@ -65,6 +66,7 @@ const Index = () => {
         <ExperienceSection />
         <SkillsSection />
         <ProjectsSection />
+        <AwardsSection />
         <ContactSection />
       </main>
     </div>
