@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 interface Project {
   name: string;
@@ -10,36 +10,35 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: 'E-Commerce Platform',
-    slug: 'e-commerce-platform',
-    description: 'A full-featured online store with real-time inventory management, payment processing, and analytics dashboard.',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+    name: "AlgoVault",
+    slug: "algo-vault",
+    description:
+      "A developer-focused platform for learning algorithms with structured explanations, visualizations, and multi-language implementations. Designed to simplify complex DSA concepts and improve problem-solving skills.",
+    tech: ["Flutter", "Firebase", "Python"],
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=600&h=400&fit=crop",
   },
   {
-    name: 'Task Management App',
-    slug: 'task-management-app',
-    description: 'Collaborative project management tool with real-time updates, team workspaces, and automated workflows.',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'WebSocket'],
-    image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
+    name: "AbleEase",
+    slug: "able-ease",
+    description:
+      "An award-winning mobile application built to assist specially abled individuals through guided retraining exercises. Focused on accessibility, intuitive design, and real-world impact.",
+    tech: ["Flutter", "Firebase"],
+    image:
+      "https://images.unsplash.com/photo-1581091215367-59ab6b9c2c3d?w=600&h=400&fit=crop",
   },
   {
-    name: 'Analytics Dashboard',
-    slug: 'analytics-dashboard',
-    description: 'Data visualization platform processing millions of events daily with interactive charts and custom reports.',
-    tech: ['React', 'D3.js', 'Python', 'AWS'],
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop',
-  },
-  {
-    name: 'AI Content Generator',
-    slug: 'ai-content-generator',
-    description: 'Machine learning powered tool for generating marketing copy, blog posts, and social media content.',
-    tech: ['Python', 'OpenAI', 'FastAPI', 'React'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop',
+    name: "GymBuddy",
+    slug: "gymbuddy",
+    description:
+      "A modern fitness companion app featuring workout tracking, personalized UI themes, and smooth user experience. Built with scalability and performance in mind.",
+    tech: ["Flutter", "Firebase", "Provider"],
+    image:
+      "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
   },
 ];
 
-import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ProjectsSection = () => {
   const navigate = useNavigate();
@@ -50,16 +49,16 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section 
+    <section
       ref={ref as React.RefObject<HTMLElement>}
-      id="projects" 
-      className={`section-container flex flex-col justify-center scroll-reveal ${isVisible ? 'visible' : ''}`}
+      id="projects"
+      className={`section-container flex flex-col justify-center scroll-reveal ${isVisible ? "visible" : ""}`}
     >
       <div className="max-w-4xl w-full">
         <h2 className="text-5xl md:text-7xl font-display font-bold mb-16 animate-fade-in">
           Projects
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <button
@@ -76,17 +75,17 @@ const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
-              
+
               {/* Project Info */}
               <div className="p-6 space-y-4">
                 <h3 className="text-xl font-display font-semibold group-hover:text-foreground transition-colors">
                   {project.name}
                 </h3>
-                
+
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 {/* Tech Stack */}
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.tech.map((tech) => (
